@@ -19,7 +19,17 @@ public class EllipseShape extends Shapes {
     public javafx.scene.shape.Shape draw() {
         Ellipse ellipse = new Ellipse(centerX, centerY, radiusX, radiusY);
         ellipse.setFill(color);
-         setJavaFXShape(ellipse);
+        setJavaFXShape(ellipse);
         return ellipse;
+    }
+
+    @Override
+    protected void resize(double deltaX, double deltaY) {
+        radiusX += deltaX / 2;
+        radiusY += deltaY / 2;
+
+        Ellipse ellipse = (Ellipse) javafxShape;
+        ellipse.setRadiusX(radiusX);
+        ellipse.setRadiusY(radiusY);
     }
 }

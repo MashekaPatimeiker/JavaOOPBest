@@ -22,4 +22,12 @@ public class LineShape extends Shapes {
         setJavaFXShape(line);
         return line;
     }
+    @Override
+    protected void resize(double deltaX, double deltaY) {
+        endX += deltaX;
+        endY += deltaY;
+        Line line = (Line) javafxShape;
+        line.setEndX(endX);
+        line.setEndY(endY);
+    }
 }
